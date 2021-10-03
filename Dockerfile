@@ -1,17 +1,12 @@
-FROM node:8.7.0-alpine
+FROM  jenkins/jenkins:lts-jdk11
+USER root
 
-MAINTAINER Abhinav Verma
+RUN mkdir -p /tmp/download && \
+ curl -L https://download.docker.com/linux/static/stable/x86_64/docker-18.03.1-ce.tgz | tar -xz -C /tmp/download && \
+ rm -rf /tmp/download/docker/dockerd && \
+ mv /tmp/download/docker/docker* /usr/local/bin/ && \
+ rm -rf /tmp/download && \
+ groupadd -g 999 docker && \
+ usermod -aG staff,docker jenkins
 
-WORKDIR /opt/app
-
-# Copy contents of dist folder to /opt/app
-ADD dist /opt/app
-
-# Give ownership to daemon user
-RUN ["chown", "-R", "daemon:daemon", "."]
-USER daemon
-
-# Expose port 3000 to the network
-EXPOSE 3000
-
-CMD ["npm", "start", "--"]
+USER jenkins
