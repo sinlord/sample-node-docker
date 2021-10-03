@@ -1,6 +1,6 @@
 FROM node:8.7.0-alpine
 
-MAINTAINER Calvin Lee Fernandes
+MAINTAINER Abhinav Verma
 
 WORKDIR /opt/app
 
