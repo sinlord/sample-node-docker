@@ -1,4 +1,4 @@
-FROM  jenkins
+FROM  jenkins/jenkins:lts-jdk11
 USER root
 
 RUN mkdir -p /tmp/download && \
