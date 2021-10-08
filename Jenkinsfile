@@ -1,10 +1,14 @@
 pipeline {
-    agent any
+    agent {
+         image: 'node:16-alpine3.11'
+         args: '-p 3000:3000'
+        }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                 sh 'npm install'
+                 sh 'npm install -g gulp'                 
             }
         }
         stage('Test') {
