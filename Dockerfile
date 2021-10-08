@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts-jdk11
+FROM naughty_tu
 
 USER root
 RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
