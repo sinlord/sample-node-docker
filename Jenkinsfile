@@ -1,4 +1,10 @@
 pipeline {
+    
+    stage('Initialize'){
+        def dockerHome = tool 'naughty_tu'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+    
     agent {
         docker {
                  image 'node:16-alpine3.11'
