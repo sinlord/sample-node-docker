@@ -1,10 +1,11 @@
 pipeline {
-    docker {
-         image 'node:16-alpine3.11'
-         label 'Jenkins-label'
-         args '-p 3000:3000'
+    agent {
+        docker {
+                 image 'node:16-alpine3.11'
+                 label 'Jenkins-label'
+                 args '-p 3000:3000'
+                }
         }
-
     stages {
         stage('Build') {
             steps {
