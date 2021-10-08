@@ -1,10 +1,5 @@
 pipeline {
     
-    stage('Initialize'){
-        def dockerHome = tool 'naughty_tu'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
-    
     agent {
         docker {
                  image 'node:16-alpine3.11'
@@ -12,6 +7,11 @@ pipeline {
                 }
         }
     stages {
+        
+            stage('Initialize'){
+                def dockerHome = tool 'naughty_tu'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+            }
         
         stage('Build') {
             steps {
