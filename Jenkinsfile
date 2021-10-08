@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
                  image 'node:16-alpine3.11'
-                 label 'Jenkins-label'
                  args '-p 3000:3000'
                 }
         }
