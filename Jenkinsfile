@@ -10,6 +10,7 @@ pipeline {
         
         stage('Build') {
             steps {
+                 sh 'docker exec -u 0 -it jenkins bash'
                  sh 'npm install'
                  sh 'sudo npm install -g gulp'
                  echo 'Building..'
