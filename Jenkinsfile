@@ -11,7 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                  sh 'npm install'
-                 sh 'npm install -g gulp'                 
+                 sh 'npm install -g gulp'
+                 echo 'Building..'
             }
         }
         stage('Test') {
