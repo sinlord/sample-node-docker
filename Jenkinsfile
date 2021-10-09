@@ -11,17 +11,17 @@ pipeline {
         stage('Build') {
             steps {
                  sh 'npm install'
-                 echo 'Building..'
+                 echo 'Building..Feature branch'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing..Feature branch'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying....Feature branch'
             }
         }
     }
