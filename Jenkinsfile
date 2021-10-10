@@ -33,7 +33,7 @@ pipeline {
                     }
              }
         }
-        stage('Deploy - Staging') {
+        stage('Deploy - Staging Environment') {
             steps {
                   script {
                         try {
@@ -52,7 +52,7 @@ pipeline {
                 input "Does the staging build look ok for deployment to production?"
             }
         }
-       stage('Deploy - Production') {
+       stage('Deploy - Production Environment') {
             steps {
                 script {
                         try {
