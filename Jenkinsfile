@@ -19,9 +19,16 @@ pipeline {
                 echo 'Testing..Master branch'
             }
         }
-        stage('Deploy') {
+        stage('Deploy - Staging') {
             steps {
-                echo 'Deploying....Master Branch'
+                echo 'Deploying on Staging'
+                echo 'Running smoke test on Staging'
+            }
+       }
+       stage('Deploy - Production') {
+            steps {
+                echo 'Deploying on Production'
+                echo 'Running smoke test on Production'
             }
         }
     }
