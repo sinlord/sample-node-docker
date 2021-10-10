@@ -26,6 +26,7 @@ pipeline {
                   script {
                         try {
                           echo 'Testing..Master Branch'
+                          echo 'Testing successful'
                          } 
                          catch (err) {
                              error 'Build error'
