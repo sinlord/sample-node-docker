@@ -10,12 +10,15 @@ pipeline {
         
         stage('Build') {
             steps {
-                 try {
-                 sh 'npm install'
-                 echo 'Building..Master Branch'
-                 } catch (err) {
-                     error 'Build error'
-                 }    
+                   script {
+                        try {
+                         sh 'npm install'
+                         echo 'Building..Master Branch'
+                         } 
+                         catch (err) {
+                             error 'Build error'
+                         }  
+                    }   
             }
         }
         stage('Test') {
