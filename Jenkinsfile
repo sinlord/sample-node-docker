@@ -17,6 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..Feature branch'
+                echo 'Testing successful in Feature Branch'
             }
         }
         stage('Deploy') {
