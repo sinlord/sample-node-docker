@@ -12,8 +12,8 @@ pipeline {
             steps {
                    script {
                         try {
-                         sh 'npm install'
-                         echo 'Building..Master Branch'
+                          sh 'npm install'
+                          echo 'Building..Master Branch'
                          } 
                          catch (err) {
                              error 'Build error'
@@ -23,13 +23,28 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..Master branch'
-            }
+                  script {
+                        try {
+                          echo 'Testing..Master Branch'
+                         } 
+                         catch (err) {
+                             error 'Build error'
+                         }  
+                    }
+             }
         }
         stage('Deploy - Staging') {
             steps {
-                echo 'Deploying on Staging'
-                echo 'Running smoke test on Staging'
+                  script {
+                        try {
+                          echo 'Deploying on Staging'
+                          echo 'Running smoke test on Staging'
+                         } 
+                         catch (err) {
+                             error 'Build error'
+                         }  
+                    }
+
             }
        }
        stage('Sanity check') {
@@ -39,8 +54,15 @@ pipeline {
         }
        stage('Deploy - Production') {
             steps {
-                echo 'Deploying on Production'
-                echo 'Running smoke test on Production'
+                script {
+                        try {
+                           echo 'Deploying on Production'
+                           echo 'Running smoke test on Production'
+                         } 
+                         catch (err) {
+                             error 'Build error'
+                         }  
+                    }
             }
         }
     }
